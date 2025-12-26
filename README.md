@@ -3,13 +3,15 @@
 ## 👨🏻‍💻 ASSIGNMENT-1
 
 #### How to Access?
- #### 🔗 Assignment 1 Link: [https://rijan-gh.github.io/Web-app/assignment1/jsEventHandler.html](https://rijan-gh.github.io/Web-app/assignment1/jsEventHandler.html)
+ #### 🔗 Assignment 1 Link: [https://rijan-gh.github.io/Web-app/assignment1/index.html](https://rijan-gh.github.io/Web-app/assignment1/index.html)
 
 ---
 
 #### 📁 Structure
     Web-app/
-    ├─ assignment1/ → HTML, JS
+    ├─ assignment1
+    │   ├ index.html
+    │   └ script.js
     └─ README.md
     
 ---
