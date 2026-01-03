@@ -19,6 +19,7 @@ body{
     flex-direction: column;
     height: 100vh;
     padding: 30px 10px 0px 80px;
+    gap: 20px;
 }
 
 .section1 h3{
@@ -34,7 +35,7 @@ body{
     color: #3751FE;
     line-height: 1.5;
     font-family: 'Open Sans', 'Roboto', sans-serif;
-    margin: 90px 0px 30px 0px;
+    margin-top: 80px;
 }
 
 .section1 p{
@@ -52,21 +53,25 @@ body{
 #special {
     font-size: 14px;
     color: rgb(113, 51, 206);
-    margin: 30px 0 10px;
+    margin-bottom: 10px;
 }
   
 .email-section,
-.password-section {
+.password-section{
     width: 100%;
     padding: 10px 0 10px 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.email-section p,
+.password-section p {
+    font-size: 12px;
 }
   
 .email-section {
     border-left: 3px solid #3751FE;
 }
   
-
 .email-section input, input::placeholder,
 .password-section input, input::placeholder {
     width: 100%;
@@ -208,7 +213,7 @@ input[type="checkbox"]{
 }
 
 .img{
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     margin-top: 30px;
 }
