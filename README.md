@@ -20,8 +20,10 @@
     1. Demonstrates interactive JS events like mouseover, mouseout.
     2. Dynamic DOM manipulation and styling.
 
+***
 ---
----
+***
+
 
 ## 👨🏻‍💻 ASSIGNMENT-2
 
