@@ -1,0 +1,75 @@
+
+.Add-section {
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Add-section h2 {
+    margin-bottom: 20px;
+}
+
+.input-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.input-section #name,
+.input-section #status {
+    grid-column: span 2;
+    padding: 8px;
+}
+
+.input-section label {
+    grid-column: span 1;
+    align-self: center;
+    margin-bottom: 4px;
+}
+
+.input-section input,
+.input-section select {
+    grid-column: span 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.reset-btn:hover {
+    background: #e0e0e0;
+}
+
+.add-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.add-btn:hover {
+    background: #45a049;
+}

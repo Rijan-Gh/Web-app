@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './Details.css';
+import { Routes } from 'react-router-dom';
+import Addstudent from './Addstudent';
+import { useNavigate } from "react-router-dom";
 
 const Details = () => {
 
+  const navigate = useNavigate();
   const [students, setStudents] = useState([
     { id: 1, name: "John Doe", roll: "101", year: "2023", sem: "4th", program: "CS", status: "Pass" },
     { id: 2, name: "Jane Smith", roll: "102", year: "2023", sem: "4th", program: "CS", status: "Fail" },
@@ -28,7 +32,12 @@ const Details = () => {
     <div className="details-container">
       <div className="details-header">
         <h1>Student Details</h1>
-        <button className="add-btn">Add Student</button>
+        <button
+          className="add-btn"
+          onClick={() => setShowAddModal(true)} 
+        >
+          Add Student
+        </button>
       </div>
 
       <div className="filters-bar">
@@ -109,6 +118,14 @@ const Details = () => {
           </tbody>
         </table>
       </div>
+
+      {showAddModal && (
+        <Addstudent
+          onClose={() => setShowAddModal(false)}
+          onSave={handleAddStudent}
+        />
+      )}
+      
     </div>
   );
 };
