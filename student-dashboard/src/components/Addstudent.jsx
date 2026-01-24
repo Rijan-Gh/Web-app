@@ -1,46 +1,111 @@
+// Addstudent.jsx
+import React, { useState } from 'react';
+import './Addstudent.css';   // we'll add modal styles here
 
-import React from "react";
-import './Addstudent.css';
-const Addstudent = () => {
-    return (
-      <>
-        <div className="Add-section">
-            <h2>Add New Student</h2>
+const Addstudent = ({ onClose, onSave }) => {
+  const [form, setForm] = useState({
+    name: '',
+    roll: '',
+    year: '',
+    sem: '',
+    program: '',
+    status: '',
+  });
 
-            <div className="input-section">
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" />
-
-                <label htmlFor="roll">Roll No</label>
-                <label htmlFor="year">Year</label>
-                
-                <input type="text" id="roll" />
-                <input type="text" id="year" />
-                
-                <label htmlFor="semester">Semester</label>
-                <label htmlFor="program">Program</label>
-                
-                <input type="text" id="semester" />
-                <input type="text" id="program" />
-                
-                <label htmlFor="status">Status</label>
-                <select id="status">
-                    <option value="" disabled selected>Select an option</option>
-                    <option>Pass</option>
-                    <option>Fail</option>
-                </select>
-    
-            </div>
-            
-            <div className="btn">
-                <button type="button" class="reset-btn">Cancel</button>
-                <button type="button" class="add-btn">Add Student</button>
-            </div>
-
-        </div>
-      </>
-    );
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-  
-  export default Addstudent;
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Basic validation (you can make it stricter)
+    if (!form.name || !form.roll || !form.status) {
+      alert("Please fill required fields (Name, Roll No, Status)");
+      return;
+    }
+    onSave(form);
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <h2>Add New Student</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="input-section">
+            <label htmlFor="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="roll">Roll No *</label>
+            <input
+              type="text"
+              id="roll"
+              name="roll"
+              value={form.roll}
+              onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="year">Year</label>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              value={form.year}
+              onChange={handleChange}
+            />
+
+            <label htmlFor="sem">Semester</label>
+            <input
+              type="text"
+              id="sem"
+              name="sem"
+              value={form.sem}
+              onChange={handleChange}
+            />
+
+            <label htmlFor="program">Program</label>
+            <input
+              type="text"
+              id="program"
+              name="program"
+              value={form.program}
+              onChange={handleChange}
+            />
+
+            <label htmlFor="status">Status *</label>
+            <select
+              id="status"
+              name="status"
+              value={form.status}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select status</option>
+              <option value="Pass">Pass</option>
+              <option value="Fail">Fail</option>
+            </select>
+          </div>
+
+          <div className="modal-buttons">
+            <button type="button" className="cancel-btn" onClick={onClose}>
+              Cancel
+            </button>
+            <button type="submit" className="save-btn">
+              Add Student
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Addstudent;

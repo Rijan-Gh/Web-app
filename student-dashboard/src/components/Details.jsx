@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import './Details.css';
-import { Routes } from 'react-router-dom';
 import Addstudent from './Addstudent';
-import { useNavigate } from "react-router-dom";
 
 const Details = () => {
-
-  const navigate = useNavigate();
   const [students, setStudents] = useState([
     { id: 1, name: "John Doe", roll: "101", year: "2023", sem: "4th", program: "CS", status: "Pass" },
     { id: 2, name: "Jane Smith", roll: "102", year: "2023", sem: "4th", program: "CS", status: "Fail" },
@@ -14,19 +10,37 @@ const Details = () => {
   ]);
 
   const [statusFilter, setStatusFilter] = useState('');
+  const [showAddModal, setShowAddModal] = useState(false);   // ← added
 
   const handleDelete = (idToDelete) => {
     if (!window.confirm("Are you sure you want to delete this student?")) {
       return;
     }
-    setStudents(students.filter(student => student.id !== idToDelete)
-    );
+    setStudents(students.filter(student => student.id !== idToDelete));
   };
 
-  // 3. Filter logic (now uses the state version of students)
-  const filteredStudents = students.filter(student => {
-    return statusFilter ? student.status === statusFilter : true;
-  });
+  const handleAddStudent = (newStudentData) => {            // ← added
+    const nextId = students.length > 0 
+      ? Math.max(...students.map(s => s.id)) + 1 
+      : 1;
+    
+    const newStudent = {
+      id: nextId,
+      name: newStudentData.name,
+      roll: newStudentData.roll,
+      year: newStudentData.year,
+      sem: newStudentData.sem,
+      program: newStudentData.program,
+      status: newStudentData.status,
+    };
+
+    setStudents([...students, newStudent]);
+    setShowAddModal(false);   // close modal after successful add
+  };
+
+  const filteredStudents = students.filter(student =>
+    statusFilter ? student.status === statusFilter : true
+  );
 
   return (
     <div className="details-container">
@@ -34,7 +48,7 @@ const Details = () => {
         <h1>Student Details</h1>
         <button
           className="add-btn"
-          onClick={() => setShowAddModal(true)} 
+          onClick={() => setShowAddModal(true)}
         >
           Add Student
         </button>
@@ -42,9 +56,9 @@ const Details = () => {
 
       <div className="filters-bar">
         <div className="filter-group">
-          {/* SVG Filter Icon */}
           <svg
-            width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
             className="filter-icon"
           >
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
@@ -98,7 +112,6 @@ const Details = () => {
                   <td className="action-cell">
                     <button className="action-btn view-btn">👁️</button>
                     <button className="action-btn edit-btn">✏️</button>
-                    {/* 4. Connect delete button */}
                     <button
                       className="action-btn delete-btn"
                       onClick={() => handleDelete(student.id)}
@@ -125,7 +138,6 @@ const Details = () => {
           onSave={handleAddStudent}
         />
       )}
-      
     </div>
   );
 };

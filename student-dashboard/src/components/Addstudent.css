@@ -1,75 +1,79 @@
-
-.Add-section {
-    width: 350px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.Add-section h2 {
-    margin-bottom: 20px;
-}
-
-.input-section {
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
     width: 100%;
+    max-width: 480px;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-content h2 {
+    margin: 0 0 1.5rem;
+    text-align: center;
+  }
+  
+  .input-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-}
-
-.input-section #name,
-.input-section #status {
-    grid-column: span 2;
-    padding: 8px;
-}
-
-.input-section label {
-    grid-column: span 1;
-    align-self: center;
-    margin-bottom: 4px;
-}
-
-.input-section input,
-.input-section select {
-    grid-column: span 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 20px;
-}
-
-.btn {
+    gap: 1rem 1.5rem;
+    align-items: center;
+  }
+  
+  .input-section label {
+    font-weight: 500;
+  }
+  
+  .input-section input,
+  .input-section select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  #name, #status {
+    grid-column: 1 / -1;
+  }
+  
+  .modal-buttons {
     grid-column: 1 / -1;
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 15px;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .cancel-btn {
+    padding: 0.7rem 1.4rem;
+    background: #f3f4f6;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-.reset-btn {
-    background: #f0f0f0;
-    color: #333;
-}
-
-.reset-btn:hover {
-    background: #e0e0e0;
-}
-
-.add-btn {
-    background: #4CAF50;
+  }
+  
+  .save-btn {
+    padding: 0.7rem 1.4rem;
+    background: #10b981;
     color: white;
-}
-
-.add-btn:hover {
-    background: #45a049;
-}
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover {
+    background: #059669;
+  }
