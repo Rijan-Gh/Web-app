@@ -12,9 +12,9 @@
   position: relative;
   background: white;
   width: 100%;
-  max-width: 480px;           /* slightly wider than 400px for better readability */
+  max-width: 480px;        
   border-radius: 12px;
-  padding: 2rem;              /* 32px — modern comfortable padding */
+  padding: 2rem;             
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   max-height: 90vh;
   overflow-y: auto;
@@ -22,16 +22,15 @@
 
 .modal-content h2 {
   margin: 0 0 1.5rem;
-  text-align: center;
   font-size: 1.5rem;
 }
 
 .input-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 1.25rem;           /* controls vertical spacing between rows */
-  align-items: start;         /* better alignment when labels wrap */
+  column-gap: 20px; 
+  row-gap: 10px;
+  align-items: start;       
   width: 100%;
 }
 
@@ -45,12 +44,13 @@
 .input-section input,
 .input-section select {
   width: 100%;
-  padding: 0.65rem 0.8rem;    /* comfortable but not too big */
+  padding: 10px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 1rem;
   box-sizing: border-box;
   transition: border-color 0.15s;
+  margin-bottom: 20px;  
 }
 
 .input-section input:focus,
@@ -60,13 +60,12 @@
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-/* Full-width fields */
 #name,
 #status {
   grid-column: span 2;
 }
 
-/* Buttons */
+
 .modal-buttons {
   grid-column: 1 / -1;
   display: flex;

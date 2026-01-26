@@ -31,7 +31,7 @@ const Addstudent = ({ onClose, onSave }) => {
 
         <form onSubmit={handleSubmit}>
           <div className="input-section">
-            <label htmlFor="name">Name *</label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
@@ -41,7 +41,7 @@ const Addstudent = ({ onClose, onSave }) => {
               required
             />
 
-            <label htmlFor="roll">Roll No *</label>
+            <label htmlFor="roll">Roll No</label>
             <label htmlFor="year">Year</label>
 
             <input
@@ -79,8 +79,8 @@ const Addstudent = ({ onClose, onSave }) => {
               value={form.program}
               onChange={handleChange}
             />
-            
-            <label htmlFor="status">Status *</label>
+
+            <label htmlFor="status">Status</label>
             <select
               id="status"
               name="status"
