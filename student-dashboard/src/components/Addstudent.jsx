@@ -1,6 +1,5 @@
-// Addstudent.jsx
 import React, { useState } from 'react';
-import './Addstudent.css';   // we'll add modal styles here
+import './Addstudent.css';
 
 const Addstudent = ({ onClose, onSave }) => {
   const [form, setForm] = useState({
@@ -18,9 +17,8 @@ const Addstudent = ({ onClose, onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation (you can make it stricter)
-    if (!form.name || !form.roll || !form.status) {
-      alert("Please fill required fields (Name, Roll No, Status)");
+    if (!form.name.trim() || !form.roll.trim() || !form.status) {
+      alert("Please fill required fields: Name, Roll No, and Status");
       return;
     }
     onSave(form);
@@ -28,7 +26,7 @@ const Addstudent = ({ onClose, onSave }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Add New Student</h2>
 
         <form onSubmit={handleSubmit}>
@@ -44,6 +42,8 @@ const Addstudent = ({ onClose, onSave }) => {
             />
 
             <label htmlFor="roll">Roll No *</label>
+            <label htmlFor="year">Year</label>
+
             <input
               type="text"
               id="roll"
@@ -53,7 +53,6 @@ const Addstudent = ({ onClose, onSave }) => {
               required
             />
 
-            <label htmlFor="year">Year</label>
             <input
               type="text"
               id="year"
@@ -63,6 +62,8 @@ const Addstudent = ({ onClose, onSave }) => {
             />
 
             <label htmlFor="sem">Semester</label>
+            <label htmlFor="program">Program</label>
+
             <input
               type="text"
               id="sem"
@@ -71,7 +72,6 @@ const Addstudent = ({ onClose, onSave }) => {
               onChange={handleChange}
             />
 
-            <label htmlFor="program">Program</label>
             <input
               type="text"
               id="program"
@@ -79,7 +79,7 @@ const Addstudent = ({ onClose, onSave }) => {
               value={form.program}
               onChange={handleChange}
             />
-
+            
             <label htmlFor="status">Status *</label>
             <select
               id="status"
@@ -88,7 +88,9 @@ const Addstudent = ({ onClose, onSave }) => {
               onChange={handleChange}
               required
             >
-              <option value="">Select status</option>
+              <option value="" disabled>
+                Select status
+              </option>
               <option value="Pass">Pass</option>
               <option value="Fail">Fail</option>
             </select>

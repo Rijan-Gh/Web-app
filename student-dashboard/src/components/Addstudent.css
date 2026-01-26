@@ -1,79 +1,109 @@
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    width: 100%;
-    max-width: 480px;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  
-  .modal-content h2 {
-    margin: 0 0 1.5rem;
-    text-align: center;
-  }
-  
-  .input-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.5rem;
-    align-items: center;
-  }
-  
-  .input-section label {
-    font-weight: 500;
-  }
-  
-  .input-section input,
-  .input-section select {
-    width: 100%;
-    padding: 0.7rem;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  
-  #name, #status {
-    grid-column: 1 / -1;
-  }
-  
-  .modal-buttons {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .cancel-btn {
-    padding: 0.7rem 1.4rem;
-    background: #f3f4f6;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .save-btn {
-    padding: 0.7rem 1.4rem;
-    background: #10b981;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .save-btn:hover {
-    background: #059669;
-  }
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  width: 100%;
+  max-width: 480px;           /* slightly wider than 400px for better readability */
+  border-radius: 12px;
+  padding: 2rem;              /* 32px — modern comfortable padding */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.input-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 1.25rem;           /* controls vertical spacing between rows */
+  align-items: start;         /* better alignment when labels wrap */
+  width: 100%;
+}
+
+.input-section label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #374151;
+  align-self: center;
+}
+
+.input-section input,
+.input-section select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;    /* comfortable but not too big */
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.input-section input:focus,
+.input-section select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Full-width fields */
+#name,
+#status {
+  grid-column: span 2;
+}
+
+/* Buttons */
+.modal-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.cancel-btn {
+  padding: 0.65rem 1.4rem;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.save-btn {
+  padding: 0.65rem 1.4rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.save-btn:hover {
+  background: #059669;
+}
+
+.save-btn:active {
+  background: #047857;
+}
