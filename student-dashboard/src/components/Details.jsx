@@ -10,7 +10,7 @@ const Details = () => {
   ]);
 
   const [statusFilter, setStatusFilter] = useState('');
-  const [showAddModal, setShowAddModal] = useState(false);   // ← added
+  const [showAddModal, setShowAddModal] = useState(false); 
 
   const handleDelete = (idToDelete) => {
     if (!window.confirm("Are you sure you want to delete this student?")) {
@@ -19,7 +19,7 @@ const Details = () => {
     setStudents(students.filter(student => student.id !== idToDelete));
   };
 
-  const handleAddStudent = (newStudentData) => {            // ← added
+  const handleAddStudent = (newStudentData) => {           
     const nextId = students.length > 0 
       ? Math.max(...students.map(s => s.id)) + 1 
       : 1;
@@ -35,7 +35,7 @@ const Details = () => {
     };
 
     setStudents([...students, newStudent]);
-    setShowAddModal(false);   // close modal after successful add
+    setShowAddModal(false);  
   };
 
   const filteredStudents = students.filter(student =>
